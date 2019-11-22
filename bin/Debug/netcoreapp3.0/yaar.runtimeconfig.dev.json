@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\MATIAS\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\MATIAS\\.nuget\\packages"
+    ]
+  }
+}

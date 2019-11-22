@@ -1,0 +1,11 @@
+C:\Users\MATIAS\Documents\sharp\yaar\bin\Debug\netcoreapp3.0\yaar.exe
+C:\Users\MATIAS\Documents\sharp\yaar\bin\Debug\netcoreapp3.0\yaar.deps.json
+C:\Users\MATIAS\Documents\sharp\yaar\bin\Debug\netcoreapp3.0\yaar.runtimeconfig.json
+C:\Users\MATIAS\Documents\sharp\yaar\bin\Debug\netcoreapp3.0\yaar.runtimeconfig.dev.json
+C:\Users\MATIAS\Documents\sharp\yaar\bin\Debug\netcoreapp3.0\yaar.dll
+C:\Users\MATIAS\Documents\sharp\yaar\bin\Debug\netcoreapp3.0\yaar.pdb
+C:\Users\MATIAS\Documents\sharp\yaar\obj\Debug\netcoreapp3.0\yaar.csprojAssemblyReference.cache
+C:\Users\MATIAS\Documents\sharp\yaar\obj\Debug\netcoreapp3.0\yaar.AssemblyInfoInputs.cache
+C:\Users\MATIAS\Documents\sharp\yaar\obj\Debug\netcoreapp3.0\yaar.AssemblyInfo.cs
+C:\Users\MATIAS\Documents\sharp\yaar\obj\Debug\netcoreapp3.0\yaar.dll
+C:\Users\MATIAS\Documents\sharp\yaar\obj\Debug\netcoreapp3.0\yaar.pdb
