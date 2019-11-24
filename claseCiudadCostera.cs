@@ -9,17 +9,23 @@ namespace yaar
 {
     public class claseCiudadCostera{
         
-        public int cantidadHabitantes { get; set;}
+         public claseCiudadCostera(){
+            
+            int _cantidadHabitantes;
+        
+        }
+        
+        public int cantidadHabitantes { get; set;} //*este es el property de cantidad de habitantes*//
         
         public int CantidadHabitantes;
 
-        public bool sosSaqueablePor(unPirata) {
+        public bool sosSaqueablePor(clasePirata unPirata) {
 		    
             return unPirata.nivelEbriedad() >= 50;
 	    
         }
 
-        public bool esVulnerableA(otroBarco) {
+        public bool esVulnerableA(claseBarco otroBarco) {
 		    
             return otroBarco.cantidadTripulantes() >= cantidadHabitantes * 0.4 || otroBarco.todosPasadosDeGrog();
 	

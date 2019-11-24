@@ -9,7 +9,8 @@ namespace yaar
 {
     public class claseMision{
 
-        public bool esRealizablePor(unBarco) {
+        
+        public bool esRealizablePor(claseBarco unBarco) {
 		    
             return unBarco.tieneSuficienteTripulacion();
 	    
@@ -18,21 +19,21 @@ namespace yaar
 
     public class claseBusquedaDelTesoro : claseMision {
 
-        public bool esUtil(unPirata) {
+        public bool esUtil(clasePirata unPirata) {
 		
             return self.tieneAlgunItemObligatorio(unPirata) && unPirata.cantidadMonedas() <= 5;
 	    
         }
 
-        public bool tieneAlgunItemObligatorio(unPirata) {
+        public bool tieneAlgunItemObligatorio(clasePirata unPirata) {
 		    
-            return ['brújula', 'mapa', 'grogXD'].any { item =>  unPirata.tiene(item) };
+            return ["brújula", "mapa", "grogXD"] .any ((string item) =>  unPirata.tiene(item));
 	    
         }
 
-        override public bool esRealizablePor(unBarco) {
+        override public bool esRealizablePor(claseBarco unBarco) {
 		    
-            return super(unBarco) && unBarco.tiene('llave de cofre');
+            return super(unBarco) && unBarco.tiene("llave de cofre");
 	    
         }
     }
@@ -40,8 +41,14 @@ namespace yaar
     public class claseConvertirseEnLeyenda : claseMision {
 
 	    
+        public claseconvertirseEnLeyenda(){
 
-	    public bool esUtil(unPirata) {
+            string _itemObligatorio;
+        }
+
+        public string itemObligatorio;
+
+	    public bool esUtil(clasePirata unPirata) {
 
 		    return unPirata.cantidadItems() >= 10 && unPirata.tiene(itemObligatorio);
 	
@@ -50,13 +57,21 @@ namespace yaar
     }
     public class claseSaqueo : claseMision {
 
-	    public bool esUtil(unPirata) {
+         public claseSaqueo(){
+
+            clasePirata _victima ;
+        }
+
+        public clasePirata victima;
+
+
+	    public bool esUtil(clasePirata unPirata) {
 		
             return unPirata.cantidadMonedas() < monedasParaSaquear.limite() && victima.sosSaqueablePor(unPirata);
 	    
         }
 
-	    override public bool esRealizablePor(unBarco) {
+	    override public bool esRealizablePor(claseBarco unBarco) {
 		    
             return super(unBarco) && victima.esVulnerableA(unBarco);
 	    
@@ -64,24 +79,25 @@ namespace yaar
 
     }
 
-}
+    public class monedasParaSaquear{/*esto es para crear el objeto monedaParaSaquear*/
+    
+        public int limite = 0;
+        
+        private static readonly Lazy<monedasParaSaquear> instance = new Lazy<monedasParaSaquear>(() => new monedasParaSaquear());
+    
+        private monedasParaSaquear(){
+        
+        }
+    
+        public static monedasParaSaquear Instance{
+            
+            get{
+            
+                return instance.Value;
+            
+            }
+        }
+    }
+    
 
-
-/* Esto no tengo idea de como se declara un objeto, y es lo que falta declarar en cada clase. 
-
-class ConvertirseEnLeyenda inherits Mision {
-
-	const itemObligatorio
-
-	
-
-class Saqueo inherits Mision {
-
-	const victima
-
-	
-
-object monedasParaSaquear {
-	var property limite = 0
-}
-*/
+} 

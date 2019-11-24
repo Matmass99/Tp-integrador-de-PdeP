@@ -11,27 +11,27 @@ namespace yaar
     public class claseBarco{
 
         public claseBarco(){
-            Capacidad = 0;
-            Tripulante = [];
+            int _capacidad;
+            claseMision _mision;
+            List <clasePirata> tripulante = new List <clasePirata>();
         }
-        public
-        public int Capacidad { get; set; }
-/* Supuestamente soon las listas pero no se si se declaran asi
-        private ArrayList _Tripulante;
-        
-        public ArrayList Tripulante{
 
-            get {return _Tripulante;}
-            set {_Tripulante = value;}
-        }
-*/
-        public bool sosSaqueablePor(unPirata) {
+        public claseMision mision ;
+        
+        public int Capacidad { get; set; }
+        
+        public List <clasePirata> tripulante;
+        
+        public List <clasePirata> tripulante {get {return tripulante;} set {tripulante = value;}}
+
+
+        public bool sosSaqueablePor(clasePirata unPirata) {
 		
             return unPirata.pasadoDeGrog();
 	    
         }
         
-        public bool esVulnerableA(otroBarco){
+        public bool esVulnerableA(claseBarco otroBarco){
            
             return self.cantidadTripulantes() <= otroBarco.cantidadTripulantes() / 2;
         
@@ -39,17 +39,17 @@ namespace yaar
         
         public int cantidadTripulantes() {
 		
-            return tripulantes.size();
+            return tripulante.size();
 	    
         }
 
         public bool todosPasadosDeGrog() {
 		
-            return tripulantes.all { tripulante => tripulante.pasadoDeGrog() };
+            return tripulantes.all ((clasePirata tripulante) => tripulante.pasadoDeGrog());
 	    
         }
 
-        public bool  puedeUnirse(unPirata) {
+        public bool  puedeUnirse(clasePirata unPirata) {
 		
             return self.hayLugar() && mision.esUtil(unPirata);
 	    
@@ -61,7 +61,7 @@ namespace yaar
 	    
         }
 
-        public  agregar(unTripulante) {
+        public void agregar(clasePirata unTripulante) {
 		    
             if (self.puedeUnirse(unTripulante)) {
 			
@@ -71,15 +71,15 @@ namespace yaar
 
 	    }
 
-        public cambiarMision(unaMision) {
+        public void cambiarMision(claseMision unaMision) {
 		   
-            tripulantes.removeAllSuchThat { tripulante => unaMision.esUtil(tripulante).negate() };
+            tripulantes.removeAllSuchThat ((clasePirata tripulante) => unaMision.esUtil(tripulante).negate());
 		   
             mision = unaMision;
 	    
         }
 
-        public  anclarEn(unaCiudad) {
+        public void anclarEn(claseCiudadCostera unaCiudad) {
 		    
             self.todosTomanGrog();
 		    
@@ -87,13 +87,13 @@ namespace yaar
 	   
         }
 
-        public todosTomanGrog() {
+        public void todosTomanGrog() {
 		
-        tripulantes.forEach { tripulante => tripulante.tomarGrog()};
+        tripulantes.forEach ((clasePirata tripulante) => tripulante.tomarGrog());
 	    
         }
 
-        public  perderMasEbrioEn(unaCiudad) {
+        public void perderMasEbrioEn(claseCiudadCostera unaCiudad) {
             
             tripulantes.remove(self.pirataMasEbrio());
 		
@@ -101,7 +101,7 @@ namespace yaar
 	    
         }
 
-        public esTemible() {
+        public void esTemible() {
 		    
             mision.esRealizablePor(self);
 	    
@@ -113,9 +113,9 @@ namespace yaar
 	
          }
 
-        public bool tiene(unItem) {
+        public bool tiene(String unItem) {
 		
-            return tripulantes.any { tripulante => tripulante.tiene(unItem)};
+            return tripulantes.any ((clasePirata tripulante) => tripulante.tiene(unItem));
 	    
         }
 
@@ -127,22 +127,23 @@ namespace yaar
 
         public int cantidadItemsDistintosEntreTripulantesPasadosDeGrog() {
 		
-            return self.tripulantesPasadosDeGrog().flatMap { tripulante => tripulante.items() }.asSet().size();
+            return self.tripulantesPasadosDeGrog().flatMap ((clasePirata tripulante) => tripulante.items()).asSet().size();
 	
         }
 
-        public int cantidadInvitadosPor(unTripulante) {
+        public int cantidadInvitadosPor(clasePirata unTripulante) {
 		
-            return tripulantes.count { tripulante => tripulante.fuisteInvitadoPor(unTripulante) };
+            return tripulantes.count ((clasePirata tripulante) => tripulante.fuisteInvitadoPor(unTripulante));
 	    
         }
 
         public todosTomanGrog() {
 
-		    tripulantes.forEach { tripulante => tripulante.tomarGrog() };
+		    tripulantes.forEach ((clasePirata tripulante) => tripulante.tomarGrog());
 	    
         }
 
+}
 }
 
 
@@ -150,13 +151,6 @@ namespace yaar
 tampoco que tipo hay que poner de retorno si lo que se retorna es un objeto
  y es lo que falta declarar en cada clase.
 
-
-class Barco {
-
-	var mision
-	const property tripulantes = []
-	
-	
 	method pirataMasEbrio() {
 		return tripulantes.max { tripulante => tripulante.nivelEbriedad() }
 	}
@@ -174,5 +168,5 @@ class Barco {
 	}
 	
 	
-}
+
 */

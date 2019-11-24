@@ -8,15 +8,17 @@ using System.Theading.Tasks;
 namespace yaar
 {
     public class clasePirata{
-/* Supuestamente soon las listas pero no se si se declaran asi 
-        private ArrayList _Items;
-        
-        public ArrayList Items{
 
-            get {return _Items;}
-            set {_Items = value;}
+        public clasePirata(){
+            int _nivelEbriedad;
+            int _cantidadMonedas;
+            List <string> items = new List <string>();
+            clasePirata _invitante;
         }
-*/
+
+        public List <string> items;
+
+        public List <string> items {get {return items;} set {items = value;}} //*esto es el property de los items*//
 
         public int nivelEbriedad { get;  }
 
@@ -26,7 +28,9 @@ namespace yaar
         
         public int cantidadMonedas;
 
-        public bool tiene(unItem) {
+        public clasePirata invitante;
+
+        public bool tiene(string unItem) {
 		   
             return items.contains(unItem);
 	    
@@ -62,23 +66,23 @@ namespace yaar
 
         public validarGastarMonedas() {
 		    if (cantidadMonedas == 0) {
-			    throw new TripulanteException(message = 'Cantidad de monedas insuficientes... insert coin!');
+			    throw new TripulanteException(message = "Cantidad de monedas insuficientes... insert coin!");
 		    }
 	    }
     
-        public bool podesSaquear(unaVictima) {
+        public bool podesSaquear(clasePirata unaVictima) {
 		
             return unaVictima.sosSaqueablePor(self);
 	
         }
 
-        public int cantidadInvitadosPara(unBarco) {
+        public int cantidadInvitadosPara(claseBarco unBarco) {
 		    
             return unBarco.cantidadInvitadosPor(self);
 	    
         }
 
-        public bool fuisteInvitadoPor(unTripulante) { 
+        public bool fuisteInvitadoPor(clasePirata unTripulante) { 
 		    
             return invitante.equals(unTripulante);
 	
@@ -93,20 +97,11 @@ namespace yaar
 
 	}
 
-	    override public bool podesSaquear(unaVictima) {
+	    override public bool podesSaquear(clasePirata unaVictima) {
 		    
-            return super(unaVictima) && self.tiene('permiso de la corona');
+            return super(unaVictima) && self.tiene("permiso de la corona");
 	
     }	
 }
     public class TripulanteException : Exception {}
 }
-/*/* Esto no tengo idea de como se declara, y es lo que falta declarar en la clase.
-class Pirata {
-	
-	const property items = []
-	
-	var invitante
-
-}
-*/
