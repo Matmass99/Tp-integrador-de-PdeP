@@ -25,11 +25,15 @@ namespace yaar
 	    
         }
 
-        public bool tieneAlgunItemObligatorio(clasePirata unPirata) {
-		    
-            return ["brújula", "mapa", "grogXD"] .any ((string item) =>  unPirata.tiene(item));
-	    
+        public bool tieneAlgunItemObligatorio(clasePirata unPirata){ 
+            
+            var objetos = new List<String>{"brújula", "mapa", "grogXD"};
+
+            return objetos.any((string item) => unPirata.tiene(item));
+        
         }
+	    
+        
 
         override public bool esRealizablePor(claseBarco unBarco) {
 		    
