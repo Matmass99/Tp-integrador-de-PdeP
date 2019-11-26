@@ -13,16 +13,16 @@ namespace yaar
         public claseBarco(){
             int _capacidad;
             claseMision _mision;
-            List <clasePirata> tripulante = new List <clasePirata>();
+            List <clasePirata> tripulantes = new List <clasePirata>();
         }
 
         public claseMision mision ;
         
         public int Capacidad { get; set; }
         
-        public List <clasePirata> tripulante;
+        public List <clasePirata> tripulantes;
         
-        public List <clasePirata> tripulante {get {return tripulante;} set {tripulante = value;}}
+        public List <clasePirata> tripulantes {get {return tripulante;} set {tripulante = value;}}
 
 
         public bool sosSaqueablePor(clasePirata unPirata) {
@@ -39,7 +39,7 @@ namespace yaar
         
         public int cantidadTripulantes() {
 		
-            return tripulante.size();
+            return tripulantes.size();
 	    
         }
 
@@ -142,31 +142,32 @@ namespace yaar
 		    tripulantes.forEach ((clasePirata tripulante) => tripulante.tomarGrog());
 	    
         }
+        
+        public List<clasePirata> pirataMasEbrio() {
+		    
+            return tripulantes.max ((clasePirta tripulante) => tripulante.nivelEbriedad());
+	    }
+        public List<clasePirata> tripulantesPasadosDeGrog() {
+		    
+            return tripulantes.filter ((clasePirata tripulante) => tripulante.pasadoDeGrog());
+	    
+        }
 
+       	public List<clasePirata> tripulantePasadoDeGrogConMasMonedas() {
+		
+            return self.tripulantesPasadosDeGrog().max ((clasePirata tripulante) => tripulante.cantidadMonedas());
+	    
+        }
+
+	    public List<clasePirata> tripulanteMasInvitador() {
+		    
+            return tripulantes.max ((clasePirata tripulante) => tripulante.cantidadInvitadosPara(self));
+	    
+        }
+	
+	
+
+
+    }
 }
-}
 
-
-/*/* Esto no tengo idea de como se declara, 
-tampoco que tipo hay que poner de retorno si lo que se retorna es un objeto
- y es lo que falta declarar en cada clase.
-
-	method pirataMasEbrio() {
-		return tripulantes.max { tripulante => tripulante.nivelEbriedad() }
-	}
-	
-	method tripulantesPasadosDeGrog() {
-		return tripulantes.filter { tripulante => tripulante.pasadoDeGrog() }
-	}
-
-	method tripulantePasadoDeGrogConMasMonedas() {
-		return self.tripulantesPasadosDeGrog().max { tripulante => tripulante.cantidadMonedas() }
-	}
-
-	method tripulanteMasInvitador() {
-		return tripulantes.max { tripulante => tripulante.cantidadInvitadosPara(self) }
-	}
-	
-	
-
-*/

@@ -71,7 +71,7 @@ namespace yaar
 
 	    public bool esUtil(clasePirata unPirata) {
 		
-            return unPirata.cantidadMonedas() < monedasParaSaquear.limite() && victima.sosSaqueablePor(unPirata);
+            return unPirata.cantidadMonedas() < monedasParaSaquear.Instance().limite() && victima.sosSaqueablePor(unPirata);
 	    
         }
 
@@ -86,6 +86,7 @@ namespace yaar
     public class monedasParaSaquear{/*esto es para crear el objeto monedaParaSaquear*/
     
         public int limite = 0;
+        
         
         private static readonly Lazy<monedasParaSaquear> instance = new Lazy<monedasParaSaquear>(() => new monedasParaSaquear());
     
